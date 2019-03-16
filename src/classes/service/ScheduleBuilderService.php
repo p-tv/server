@@ -264,7 +264,7 @@ class ScheduleBuilderService {
 
         $sql = "select t.id, t.showId, p.id as playId, p.playCount, t.showName  from title t, media_source s, genre g, title_genre tg
                 left join title_channel_play_count p on p.titleId = t.id
-                where s.id = t.mediaSourceId and s.movieSource = true and g.id = tg.genreId and tg.titleId = t.id
+                where s.id = t.mediaSourceId and s.movieSource = 1 and g.id = tg.genreId and tg.titleId = t.id
                  $restrictionSQL order by p.playCount, random() desc limit 1";
         $result = $this->db->getRow($sql, $params);
         # TODO: Handle no results...

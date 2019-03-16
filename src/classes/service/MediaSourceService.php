@@ -49,7 +49,7 @@ class MediaSourceService {
      * @return MediaSource[]
      */
     function getAllFillerSources(): array {
-        $sql = 'select * from media_source where fillerSource = true';
+        $sql = 'select * from media_source where fillerSource = 1';
         return $this->db->getModelArray(MediaSource::class, $sql);
     }
 
@@ -58,7 +58,7 @@ class MediaSourceService {
      * @return MediaSource[]
      */
     function getAllMovieSources(): array {
-        $sql = 'select * from media_source where movieSource = true';
+        $sql = 'select * from media_source where movieSource = 1';
         return $this->db->getModelArray(MediaSource::class, $sql);
     }
 
@@ -67,7 +67,7 @@ class MediaSourceService {
      * @return MediaSource[]
      */
     function getAllTVSources(): array {
-        $sql = 'select * from media_source where tvSource = true';
+        $sql = 'select * from media_source where tvSource = 1';
         return $this->db->getModelArray(MediaSource::class, $sql);
     }
 
