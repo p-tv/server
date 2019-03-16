@@ -1,0 +1,7 @@
+# User-specific stuff
+.idea/*
+composer.phar
+/vendor/
+
+# Don't commit database
+ptv.sqlite

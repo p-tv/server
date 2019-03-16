@@ -1,0 +1,17 @@
+{
+    "name": "p-tv/server",
+    "description": "Plex TV Schedule Server and API server for TV clients",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "ext-sqlite3": "*",
+        "ext-json": "*",
+        "jc21/plex-api": "^1.2",
+        "php-di/php-di": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ptv\\": "./src/classes/"
+        }
+    }
+}
