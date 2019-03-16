@@ -4,11 +4,7 @@ namespace ptv\service;
 
 
 use ptv\Database;
-use ptv\model\Channel;
-use ptv\model\Genre;
-use ptv\model\MediaSource;
 use ptv\model\TitleChannelPlayCount;
-use ptv\PlexServer;
 
 class TitleChannelPlayCountService {
 
