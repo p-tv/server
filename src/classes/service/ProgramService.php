@@ -68,7 +68,7 @@ class ProgramService {
      * @return Program|null
      */
     public function getUpNext(int $channelId, string $startTime): ?Program {
-        $sql = 'select * from program where channelId = :channelId and startTime >= :startTime and isFiller = false order by startTime limit 1';
+        $sql = 'select * from program where channelId = :channelId and startTime >= :startTime and isFiller = 0 order by startTime limit 1';
         $params = [':channelId' => $channelId, ':startTime' => $startTime];
         return $this->getProgramList($sql, $params);
     }
