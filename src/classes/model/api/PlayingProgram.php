@@ -94,6 +94,12 @@ class PlayingProgram {
     var $isFiller;
 
     /**
+     * How many seconds to cut the content after if it is filler
+     * @var int
+     */
+    var $fillerCutSeconds;
+
+    /**
      * PlayingProgram constructor.
      * @param Title $title
      * @param Program $program

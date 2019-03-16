@@ -129,6 +129,9 @@ class APIService {
         $playingProgram->playUrl = $plexUrl;
         $playingProgram->currentTimeSeconds = $currentSeconds;
         $playingProgram->isFiller = (bool) $program->isFiller;
+        if ($program->fillerCutSeconds != null && $program->fillerCutSeconds > 0) {
+            $playingProgram->fillerCutSeconds = $program->fillerCutSeconds;
+        }
         return $playingProgram;
     }
 
