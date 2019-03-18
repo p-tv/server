@@ -210,7 +210,7 @@ class TitleService {
      */
     private function disableMissingTitles(MediaSource $source, array $titleIDs) {
         $escapedIDs = $this->db->buildInString($titleIDs);
-        $sql = "update title set enabled = false where mediaSourceId = :mediaSourceId and id not in $escapedIDs";
+        $sql = "update title set enabled = 0 where mediaSourceId = :mediaSourceId and id not in $escapedIDs";
         $this->db->execute($sql, [':mediaSourceId' => $source->id]);
     }
 
