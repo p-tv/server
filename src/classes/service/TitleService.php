@@ -109,14 +109,16 @@ class TitleService {
                 $newId = $this->addNewTitle($title, $isTVSource);
                 $title->id = $newId;
                 $foundIDs[] = $newId;
-            } else {
+	    } else {
+		if ($isTVSource) {
+	            $title->showId = $this->tvShowService->getIdForName($title->showName, true);
+	        }
                 $foundIDs[] = $existing->id;
                 $title->id = $existing->id;
             }
             # Update genres
-            if ($isTVSource) {
+	    if ($isTVSource) {
                 $this->tvShowGenreService->updateGenresForTvShow($title->showId, $title->genres);
-
             } else {
                 $this->titleGenreService->updateGenresForTitle($title, $title->genres);
             }
@@ -197,7 +199,7 @@ class TitleService {
      */
     private function addNewTitle(Title $title, bool $isTvSource): int {
         if ($isTvSource) {
-            $title->showId = $this->tvShowService->getIdForName($title->showName, true);
+		$title->showId = $this->tvShowService->getIdForName($title->showName, true);
         }
         $this->db->execute($title->getInsertSQL(), $title->getInsertParameters());
         return $this->db->getLastInsertedID();
