@@ -129,7 +129,7 @@ class ScheduleBuilderService {
                 $name = $title->showName . ' ' . $name;
             }
 
-            echo date("Y-m-d H:i:s", $currentUnixTime) . ' - ' . date("Y-m-d H:i:s", $currentUnixTime + $title->durationSeconds) .    ' - ' . $name . ' - Run length: ' . Utils::GetReadableDuration($title->durationSeconds) . PHP_EOL;
+            echo date("Y-m-d H:i:s", $currentUnixTime) . ' - Channel: ' . $channel->name . ': '  . date("Y-m-d H:i:s", $currentUnixTime + $title->durationSeconds) .    ' - ' . $name . ' - Run length: ' . Utils::GetReadableDuration($title->durationSeconds) . PHP_EOL;
 
             $currentUnixTime += $title->durationSeconds;
 
@@ -199,7 +199,7 @@ class ScheduleBuilderService {
                 $name = $title->showName . ' ' . $name;
             }
 
-            echo date("Y-m-d H:i:s", $currentUnixTime) . ' - ' . $program->endTime .
+            echo date("Y-m-d H:i:s", $currentUnixTime) . ' - Channel: ' . $channel->name . ': ' . $program->endTime .
                 ' - Filler: ' . $name .
                 ' - Run length: ' . $runInfo
                 . PHP_EOL;
